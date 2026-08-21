@@ -1,0 +1,34 @@
+Feature,Importance
+cat__Location_Tokyo,0.035371326
+num__Txn_to_Balance_Pct,0.033907525
+cat__Merchant_Category_Restaurants,0.033456504
+num__Transaction_Amount,0.033446923
+num__Account_Balance,0.03325412
+num__Amount_Zscore_User,0.0332245
+num__Card_Age,0.03319087
+num__Previous_Fraudulent_Activity,0.03302584
+cat__Location_New York,0.032952476
+cat__Merchant_Category_Travel,0.03248606
+cat__Transaction_Type_ATM Withdrawal,0.03224901
+cat__Card_Type_Amex,0.031571247
+cat__Card_Type_Discover,0.031310845
+num__Is_Weekend,0.031290893
+cat__Merchant_Category_Electronics,0.031159226
+num__Day_of_Week,0.031115325
+num__Day,0.03099862
+num__Daily_Transaction_Count,0.030963514
+cat__Transaction_Type_POS,0.030888371
+cat__Card_Type_Mastercard,0.030790739
+cat__Transaction_Type_Bank Transfer,0.03076137
+cat__Device_Type_Tablet,0.030714495
+num__Month,0.03060381
+cat__Device_Type_Mobile,0.030212585
+cat__Device_Type_Laptop,0.029766632
+cat__Merchant_Category_Clothing,0.029593196
+cat__Location_London,0.029339097
+cat__Merchant_Category_Groceries,0.029207721
+cat__Location_Mumbai,0.028791124
+cat__Transaction_Type_Online,0.028412748
+cat__Location_Sydney,0.02815711
+cat__Card_Type_Visa,0.02778618
+num__Year,0.0
