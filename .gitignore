@@ -32,5 +32,4 @@ Thumbs.db
 models/*.pkl
 
 # Large datasets
-data/raw/*.csv
 data/processed/*.csv
