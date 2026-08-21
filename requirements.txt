@@ -1,4 +1,4 @@
-cat > requirements.txt <<'EOF'
+
 streamlit==1.45.1
 pandas==2.3.3
 numpy==2.2.6
@@ -6,4 +6,3 @@ scikit-learn==1.7.2
 joblib==1.5.3
 plotly==6.9.0
 scipy==1.15.3
-EOF
