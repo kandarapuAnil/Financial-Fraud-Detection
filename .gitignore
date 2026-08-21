@@ -34,3 +34,5 @@ data/processed/*.csv
 models/logistic_regression.pkl
 models/random_forest.pkl
 models/xgboost_model.pkl
+# Required by deployed dashboard for model evaluation
+!data/processed/test_data.csv
