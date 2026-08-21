@@ -15,7 +15,7 @@ env/
 # Jupyter
 .ipynb_checkpoints/
 
-# Streamlit
+# Streamlit secrets
 .streamlit/secrets.toml
 
 # OS
@@ -28,9 +28,6 @@ Thumbs.db
 # Python cache
 .pytest_cache/
 
-# Large/generated model files
-models/*.pkl
-
-# Large datasets
+# Large datasets not required by deployed app
 data/raw/synthetic_fraud_dataset.csv
 data/processed/*.csv
