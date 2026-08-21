@@ -32,4 +32,5 @@ Thumbs.db
 models/*.pkl
 
 # Large datasets
+data/raw/synthetic_fraud_dataset.csv
 data/processed/*.csv
