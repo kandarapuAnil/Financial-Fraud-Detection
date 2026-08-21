@@ -31,3 +31,6 @@ Thumbs.db
 # Large datasets not required by deployed app
 data/raw/synthetic_fraud_dataset.csv
 data/processed/*.csv
+echo "models/logistic_regression.pkl" >> .gitignore
+echo "models/random_forest.pkl" >> .gitignore
+echo "models/xgboost_model.pkl" >> .gitignore
