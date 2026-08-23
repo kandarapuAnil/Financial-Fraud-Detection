@@ -51,200 +51,380 @@ st.set_page_config(
 
 
 # ============================================================
-# PROFESSIONAL CSS
+# PROFESSIONAL CSS — MODERN DARK THEME
 # ============================================================
 
 st.markdown(
     """
     <style>
+    /* === BASE === */
     .stApp {
-        background: #0b1020;
+        background: #0a0e1a;
     }
 
     [data-testid="stAppViewContainer"] {
         background:
-            radial-gradient(circle at 15% 0%, rgba(99,102,241,.10), transparent 30%),
-            radial-gradient(circle at 90% 10%, rgba(236,72,153,.08), transparent 28%),
-            #0b1020;
+            radial-gradient(ellipse at 0% 20%, rgba(16, 185, 129, 0.08), transparent 40%),
+            radial-gradient(ellipse at 100% 80%, rgba(99, 102, 241, 0.10), transparent 40%),
+            #0a0e1a;
     }
 
     [data-testid="stSidebar"] {
-        background: #080d1a !important;
-        border-right: 1px solid rgba(255,255,255,.06);
+        background: linear-gradient(180deg, #0d1225 0%, #0a0e1a 100%) !important;
+        border-right: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    [data-testid="stSidebar"] [data-testid="stMarkdownContainer"] {
+        color: #94a3b8;
     }
 
     .block-container {
         max-width: 1500px;
-        padding-top: 1.4rem;
-        padding-bottom: 2.5rem;
+        padding-top: 1.2rem;
+        padding-bottom: 2rem;
     }
 
+    /* === HERO === */
     .hero {
-        padding: 1.8rem 2rem;
-        border-radius: 20px;
-        background: linear-gradient(135deg, #151d35 0%, #10172b 55%, #171225 100%);
-        border: 1px solid rgba(255,255,255,.07);
-        box-shadow: 0 18px 55px rgba(0,0,0,.28);
-        margin-bottom: 1.2rem;
+        padding: 2rem 2.2rem;
+        border-radius: 24px;
+        background: linear-gradient(145deg, #111b2e 0%, #0d1628 50%, #0f1122 100%);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.03);
+        margin-bottom: 1.5rem;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .hero::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        right: -20%;
+        width: 400px;
+        height: 400px;
+        background: radial-gradient(circle, rgba(16, 185, 129, 0.06), transparent 70%);
+        pointer-events: none;
     }
 
     .hero h1 {
         margin: 0;
-        color: #f8fafc;
-        font-size: 2rem;
+        background: linear-gradient(135deg, #f8fafc 40%, #94a3b8 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-size: 2.1rem;
         font-weight: 800;
-        letter-spacing: -.7px;
+        letter-spacing: -0.5px;
+        position: relative;
+        z-index: 1;
     }
 
     .hero p {
         color: #94a3b8;
-        margin: .35rem 0 0;
-        font-size: .92rem;
+        margin: 0.4rem 0 0;
+        font-size: 0.95rem;
+        position: relative;
+        z-index: 1;
     }
 
     .badge {
         display: inline-block;
-        margin-top: .9rem;
-        padding: .38rem .85rem;
+        margin-top: 0.9rem;
+        padding: 0.4rem 1rem;
         border-radius: 999px;
-        background: rgba(99,102,241,.13);
-        color: #a5b4fc;
-        border: 1px solid rgba(99,102,241,.25);
-        font-size: .72rem;
+        background: rgba(16, 185, 129, 0.12);
+        color: #6ee7b7;
+        border: 1px solid rgba(16, 185, 129, 0.2);
+        font-size: 0.7rem;
         font-weight: 700;
-        letter-spacing: .5px;
+        letter-spacing: 0.8px;
+        text-transform: uppercase;
+        position: relative;
+        z-index: 1;
     }
 
+    /* === SECTION TITLES === */
     .section-title {
         color: #e2e8f0;
-        font-size: 1.08rem;
-        font-weight: 750;
-        margin: 1.35rem 0 .8rem;
+        font-size: 1.1rem;
+        font-weight: 700;
+        margin: 1.5rem 0 0.8rem;
+        letter-spacing: -0.3px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
     }
 
+    .section-title::after {
+        content: '';
+        flex: 1;
+        height: 1px;
+        background: linear-gradient(90deg, rgba(255,255,255,0.06), transparent);
+    }
+
+    /* === METRIC CARDS === */
     .metric-card {
-        background: rgba(18,26,48,.86);
-        border: 1px solid rgba(255,255,255,.065);
-        border-radius: 15px;
-        padding: 1.05rem 1.15rem;
-        min-height: 118px;
-        box-shadow: 0 8px 30px rgba(0,0,0,.16);
+        background: linear-gradient(145deg, rgba(17, 27, 46, 0.9), rgba(13, 22, 40, 0.9));
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        border-radius: 18px;
+        padding: 1.1rem 1.2rem;
+        min-height: 115px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+        transition: all 0.25s ease;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .metric-card::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background: linear-gradient(90deg, #10b981, #6366f1);
+        opacity: 0.6;
+    }
+
+    .metric-card:hover {
+        transform: translateY(-2px);
+        border-color: rgba(16, 185, 129, 0.15);
+        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
     }
 
     .metric-label {
         color: #64748b;
         text-transform: uppercase;
-        letter-spacing: 1px;
-        font-size: .65rem;
-        font-weight: 800;
+        letter-spacing: 1.2px;
+        font-size: 0.6rem;
+        font-weight: 700;
     }
 
     .metric-value {
         color: #f8fafc;
-        font-size: 1.65rem;
+        font-size: 1.7rem;
         font-weight: 800;
-        margin-top: .3rem;
+        margin-top: 0.25rem;
+        letter-spacing: -0.3px;
     }
 
     .metric-sub {
-        color: #64748b;
-        font-size: .72rem;
-        margin-top: .2rem;
+        color: #475569;
+        font-size: 0.7rem;
+        margin-top: 0.15rem;
     }
 
+    /* === RISK BOX === */
     .risk-box {
-        padding: 1.25rem 1.4rem;
-        border-radius: 15px;
-        border: 1px solid rgba(255,255,255,.07);
-        background: rgba(18,26,48,.85);
-        margin: .5rem 0 1rem;
+        padding: 1.3rem 1.5rem;
+        border-radius: 18px;
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        background: linear-gradient(145deg, rgba(17, 27, 46, 0.9), rgba(13, 22, 40, 0.9));
+        margin: 0.5rem 0 1rem;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
     }
 
-    .risk-low {
-        color: #4ade80;
-        font-weight: 800;
-    }
+    .risk-low { color: #34d399; font-weight: 700; }
+    .risk-medium { color: #fbbf24; font-weight: 700; }
+    .risk-high { color: #fb7185; font-weight: 700; }
+    .risk-critical { color: #f43f5e; font-weight: 800; }
 
-    .risk-medium {
-        color: #fbbf24;
-        font-weight: 800;
-    }
-
-    .risk-high {
-        color: #fb7185;
-        font-weight: 800;
-    }
-
-    .risk-critical {
-        color: #f43f5e;
-        font-weight: 900;
-    }
-
+    /* === RESULT BOXES === */
     .result-fraud {
-        padding: 1.4rem;
-        border-radius: 16px;
-        background: rgba(244,63,94,.09);
-        border: 1px solid rgba(244,63,94,.25);
+        padding: 1.5rem 1.8rem;
+        border-radius: 18px;
+        background: linear-gradient(145deg, rgba(244, 63, 94, 0.10), rgba(244, 63, 94, 0.04));
+        border: 1px solid rgba(244, 63, 94, 0.2);
+        box-shadow: 0 8px 32px rgba(244, 63, 94, 0.05);
     }
 
     .result-safe {
-        padding: 1.4rem;
-        border-radius: 16px;
-        background: rgba(34,197,94,.08);
-        border: 1px solid rgba(34,197,94,.22);
+        padding: 1.5rem 1.8rem;
+        border-radius: 18px;
+        background: linear-gradient(145deg, rgba(16, 185, 129, 0.08), rgba(16, 185, 129, 0.03));
+        border: 1px solid rgba(16, 185, 129, 0.15);
+        box-shadow: 0 8px 32px rgba(16, 185, 129, 0.05);
     }
 
     .result-title {
-        font-size: 1.45rem;
-        font-weight: 850;
+        font-size: 1.5rem;
+        font-weight: 800;
         color: #f8fafc;
+        letter-spacing: -0.3px;
     }
 
     .result-text {
         color: #94a3b8;
-        font-size: .85rem;
-        margin-top: .25rem;
+        font-size: 0.88rem;
+        margin-top: 0.3rem;
     }
 
+    /* === MODEL NOTE === */
     .model-note {
-        padding: 1rem 1.15rem;
-        border-radius: 13px;
-        background: rgba(255,255,255,.025);
-        border: 1px solid rgba(255,255,255,.055);
+        padding: 1rem 1.3rem;
+        border-radius: 14px;
+        background: rgba(255, 255, 255, 0.02);
+        border: 1px solid rgba(255, 255, 255, 0.05);
         color: #94a3b8;
-        font-size: .82rem;
-        line-height: 1.6;
+        font-size: 0.82rem;
+        line-height: 1.7;
     }
 
+    .model-note strong {
+        color: #e2e8f0;
+    }
+
+    /* === BUTTONS === */
     div[data-testid="stButton"] > button {
-        border-radius: 10px;
+        border-radius: 12px;
         border: 0;
-        background: linear-gradient(135deg, #6366f1, #8b5cf6);
+        background: linear-gradient(135deg, #10b981, #059669);
         color: white;
-        font-weight: 750;
-        min-height: 2.65rem;
+        font-weight: 700;
+        min-height: 2.8rem;
+        transition: all 0.25s ease;
+        box-shadow: 0 4px 20px rgba(16, 185, 129, 0.2);
+    }
+
+    div[data-testid="stButton"] > button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 30px rgba(16, 185, 129, 0.3);
     }
 
     div[data-testid="stDownloadButton"] > button {
-        border-radius: 10px;
+        border-radius: 12px;
+        background: linear-gradient(135deg, #6366f1, #4f46e5);
+        box-shadow: 0 4px 20px rgba(99, 102, 241, 0.2);
     }
 
-    .footer {
-        text-align: center;
-        color: #475569;
-        font-size: .72rem;
-        padding: 1.5rem 0 .4rem;
-        border-top: 1px solid rgba(255,255,255,.05);
-        margin-top: 2rem;
+    div[data-testid="stDownloadButton"] > button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 30px rgba(99, 102, 241, 0.3);
     }
 
-    /* Make Streamlit inputs blend into the dashboard */
+    /* === INPUTS === */
     div[data-baseweb="select"] > div,
     div[data-testid="stNumberInput"] > div,
     div[data-testid="stTextInput"] > div,
     div[data-testid="stDateInput"] > div {
-        background: rgba(255,255,255,.025);
-        border-radius: 9px;
+        background: rgba(255, 255, 255, 0.03);
+        border-radius: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    div[data-baseweb="select"] > div:hover,
+    div[data-testid="stNumberInput"] > div:hover {
+        border-color: rgba(16, 185, 129, 0.2);
+    }
+
+    /* === SIDEBAR BRAND === */
+    .sidebar-brand {
+        text-align: center;
+        padding: 1.2rem 0 1.5rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+        margin-bottom: 1.2rem;
+    }
+
+    .sidebar-brand .brand-icon {
+        font-size: 2.6rem;
+    }
+
+    .sidebar-brand .brand-name {
+        color: #f8fafc;
+        font-size: 1.3rem;
+        font-weight: 800;
+        letter-spacing: -0.3px;
+    }
+
+    .sidebar-brand .brand-name span {
+        color: #34d399;
+    }
+
+    .sidebar-brand .brand-sub {
+        color: #475569;
+        font-size: 0.6rem;
+        letter-spacing: 2.5px;
+        text-transform: uppercase;
+        margin-top: 0.15rem;
+    }
+
+    /* === SIDEBAR NAV === */
+    div[data-testid="stRadio"] label {
+        color: #94a3b8;
+        font-weight: 500;
+        padding: 0.4rem 0.8rem;
+        border-radius: 10px;
+        transition: all 0.2s ease;
+    }
+
+    div[data-testid="stRadio"] label:hover {
+        background: rgba(255, 255, 255, 0.03);
+        color: #e2e8f0;
+    }
+
+    div[data-testid="stRadio"] label[data-selected="true"] {
+        background: rgba(16, 185, 129, 0.08);
+        color: #34d399;
+        border: 1px solid rgba(16, 185, 129, 0.12);
+    }
+
+    /* === SIDEBAR SYSTEM INFO === */
+    .system-label {
+        color: #475569;
+        font-size: 0.6rem;
+        font-weight: 700;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        margin-top: 1.5rem;
+        margin-bottom: 0.6rem;
+    }
+
+    /* === PROGRESS BAR === */
+    div[data-testid="stProgress"] > div > div {
+        background: linear-gradient(90deg, #10b981, #6366f1) !important;
+        border-radius: 10px;
+    }
+
+    /* === FOOTER === */
+    .footer {
+        text-align: center;
+        color: #334155;
+        font-size: 0.7rem;
+        padding: 1.5rem 0 0.3rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.04);
+        margin-top: 2rem;
+        letter-spacing: 0.3px;
+    }
+
+    .footer strong {
+        color: #475569;
+    }
+
+    /* === SELECTBOX IN SIDEBAR === */
+    div[data-testid="stSelectbox"] label {
+        color: #94a3b8;
+        font-size: 0.75rem;
+        font-weight: 500;
+    }
+
+    /* === DATE INPUT === */
+    div[data-testid="stDateInput"] label {
+        color: #94a3b8;
+        font-size: 0.75rem;
+        font-weight: 500;
+    }
+
+    /* === SUCCESS / WARNING / ERROR === */
+    .stAlert {
+        border-radius: 12px;
+        border: none;
+    }
+
+    /* === DATAFRAME === */
+    div[data-testid="stDataFrame"] {
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.04);
+        overflow: hidden;
     }
 
     </style>
@@ -445,7 +625,8 @@ def chart_layout(fig, height=400):
         ),
         title_font=dict(
             color="#e2e8f0",
-            size=16
+            size=16,
+            weight=700
         ),
         margin=dict(
             t=55,
@@ -454,6 +635,10 @@ def chart_layout(fig, height=400):
             r=25
         ),
         height=height,
+        hoverlabel=dict(
+            bgcolor="#1a2640",
+            font_color="#e2e8f0"
+        ),
     )
 
     return fig
@@ -670,30 +855,11 @@ def create_test_predictions():
 with st.sidebar:
 
     st.markdown(
-        """
-        <div style="
-            text-align:center;
-            padding:1.1rem 0 1.3rem;
-            border-bottom:1px solid rgba(255,255,255,.06);
-            margin-bottom:1rem;
-        ">
-            <div style="font-size:2.5rem;">🚨</div>
-            <div style="
-                color:#f8fafc;
-                font-size:1.25rem;
-                font-weight:850;
-            ">
-                Fraud<span style="color:#818cf8;">Guard</span>
-            </div>
-            <div style="
-                color:#64748b;
-                font-size:.62rem;
-                letter-spacing:2px;
-                text-transform:uppercase;
-                margin-top:.2rem;
-            ">
-                AI Risk Monitor
-            </div>
+        f"""
+        <div class="sidebar-brand">
+            <div class="brand-icon">🚨</div>
+            <div class="brand-name">Fraud<span>Guard</span></div>
+            <div class="brand-sub">AI Risk Monitor</div>
         </div>
         """,
         unsafe_allow_html=True
@@ -711,28 +877,30 @@ with st.sidebar:
     )
 
     st.markdown(
-        "<div style='margin-top:1.4rem;color:#64748b;"
-        "font-size:.65rem;font-weight:800;letter-spacing:1px;"
-        "text-transform:uppercase;'>System</div>",
+        '<div class="system-label">System Status</div>',
         unsafe_allow_html=True
     )
 
-    st.success("Model loaded")
+    st.success("✅ Model loaded")
     st.caption(
-        f"Fraud threshold: {FRAUD_THRESHOLD:.2f}"
+        f"🎯 Threshold: {FRAUD_THRESHOLD:.2f}"
     )
 
     st.markdown(
-        """
+        f"""
         <div style="
-            margin-top:1rem;
-            color:#64748b;
-            font-size:.72rem;
-            line-height:1.6;
+            margin-top: 1rem;
+            padding: 0.8rem 1rem;
+            border-radius: 12px;
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(255,255,255,0.04);
+            color: #64748b;
+            font-size: 0.7rem;
+            line-height: 1.8;
         ">
-        Random Forest<br>
-        Supervised Classification<br>
-        Synthetic Fraud Dataset
+            <span style="color:#34d399;">●</span> Random Forest<br>
+            <span style="color:#818cf8;">●</span> Supervised Classification<br>
+            <span style="color:#fbbf24;">●</span> Synthetic Dataset
         </div>
         """,
         unsafe_allow_html=True
@@ -789,7 +957,7 @@ if page == "Overview":
     )
 
     st.markdown(
-        '<div class="section-title">Executive Overview</div>',
+        '<div class="section-title">📊 Executive Overview</div>',
         unsafe_allow_html=True
     )
 
@@ -824,7 +992,7 @@ if page == "Overview":
         )
 
     st.markdown(
-        '<div class="section-title">Transaction Distribution</div>',
+        '<div class="section-title">📈 Transaction Distribution</div>',
         unsafe_allow_html=True
     )
 
@@ -850,13 +1018,14 @@ if page == "Overview":
             title="Legitimate vs Fraudulent",
             color="Status",
             color_discrete_map={
-                "Legitimate": "#4ade80",
+                "Legitimate": "#34d399",
                 "Fraud": "#f43f5e"
             }
         )
 
         fig.update_traces(
-            textinfo="percent+label"
+            textinfo="percent+label",
+            textfont_color="#e2e8f0"
         )
 
         st.plotly_chart(
@@ -890,7 +1059,7 @@ if page == "Overview":
                 barmode="group",
                 title="Transactions by Type",
                 color_discrete_map={
-                    "Legitimate": "#4ade80",
+                    "Legitimate": "#34d399",
                     "Fraud": "#f43f5e"
                 }
             )
@@ -901,7 +1070,7 @@ if page == "Overview":
             )
 
     st.markdown(
-        '<div class="section-title">Fraud Activity Over Time</div>',
+        '<div class="section-title">📉 Fraud Activity Over Time</div>',
         unsafe_allow_html=True
     )
 
@@ -921,6 +1090,7 @@ if page == "Overview":
             x="DateOnly",
             y="Fraud_Label",
             title="Daily Fraud Transactions",
+            color_discrete_sequence=["#f43f5e"]
         )
 
         st.plotly_chart(
@@ -929,7 +1099,7 @@ if page == "Overview":
         )
 
     st.markdown(
-        '<div class="section-title">System Risk Summary</div>',
+        '<div class="section-title">⚠️ System Risk Summary</div>',
         unsafe_allow_html=True
     )
 
@@ -955,16 +1125,16 @@ if page == "Overview":
     st.markdown(
         f"""
         <div class="risk-box">
-            <div style="font-size:.72rem;color:#64748b;
+            <div style="font-size:0.7rem;color:#475569;
                         text-transform:uppercase;
-                        letter-spacing:1px;font-weight:800;">
+                        letter-spacing:1.5px;font-weight:700;">
                 Overall Dataset Risk
             </div>
-            <div style="font-size:1.5rem;margin-top:.35rem;"
+            <div style="font-size:1.6rem;margin-top:0.3rem;"
                  class="{overall_class}">
                 {overall_icon} {overall_text}
             </div>
-            <div style="color:#94a3b8;font-size:.82rem;margin-top:.45rem;">
+            <div style="color:#94a3b8;font-size:0.85rem;margin-top:0.5rem;">
                 Fraud represents {fraud_rate:.2f}% of transactions and
                 {amount_fraud_share:.2f}% of the total transaction amount.
             </div>
@@ -988,7 +1158,12 @@ elif page == "Fraud Analysis":
     filtered = df.copy()
 
     st.sidebar.markdown(
-        "### Analysis Filters"
+        """
+        <div style="color:#94a3b8;font-size:0.75rem;font-weight:600;margin-top:0.5rem;margin-bottom:0.3rem;">
+            🔧 Analysis Filters
+        </div>
+        """,
+        unsafe_allow_html=True
     )
 
     if "Transaction_Type" in df.columns:
@@ -1167,7 +1342,7 @@ elif page == "Fraud Analysis":
         )
 
     st.markdown(
-        '<div class="section-title">Fraud by Location</div>',
+        '<div class="section-title">📍 Fraud by Location</div>',
         unsafe_allow_html=True
     )
 
@@ -1246,7 +1421,8 @@ elif page == "Fraud Analysis":
                 names="Device_Type",
                 values="Fraud Count",
                 hole=.5,
-                title="Fraud by Device Type"
+                title="Fraud by Device Type",
+                color_discrete_sequence=px.colors.sequential.Reds_r
             )
 
             st.plotly_chart(
@@ -1255,7 +1431,7 @@ elif page == "Fraud Analysis":
             )
 
     st.markdown(
-        '<div class="section-title">Fraud Heatmap</div>',
+        '<div class="section-title">🔥 Fraud Heatmap</div>',
         unsafe_allow_html=True
     )
 
@@ -1284,7 +1460,7 @@ elif page == "Fraud Analysis":
         )
 
     st.markdown(
-        '<div class="section-title">Fraudulent Transactions</div>',
+        '<div class="section-title">📋 Fraudulent Transactions</div>',
         unsafe_allow_html=True
     )
 
@@ -1326,7 +1502,7 @@ elif page == "Fraud Prediction":
     )
 
     st.markdown(
-        '<div class="section-title">Transaction Details</div>',
+        '<div class="section-title">📝 Transaction Details</div>',
         unsafe_allow_html=True
     )
 
@@ -1337,21 +1513,21 @@ elif page == "Fraud Prediction":
         with col1:
 
             transaction_amount = st.number_input(
-                "Transaction Amount",
+                "💰 Transaction Amount",
                 min_value=0.01,
                 value=100.0,
                 step=10.0
             )
 
             account_balance = st.number_input(
-                "Account Balance",
+                "🏦 Account Balance",
                 min_value=0.01,
                 value=50000.0,
                 step=500.0
             )
 
             transaction_type = st.selectbox(
-                "Transaction Type",
+                "📱 Transaction Type",
                 [
                     "POS",
                     "Online",
@@ -1361,7 +1537,7 @@ elif page == "Fraud Prediction":
             )
 
             device_type = st.selectbox(
-                "Device Type",
+                "💻 Device Type",
                 [
                     "Mobile",
                     "Laptop",
@@ -1370,7 +1546,7 @@ elif page == "Fraud Prediction":
             )
 
             location = st.selectbox(
-                "Location",
+                "📍 Location",
                 [
                     "Mumbai",
                     "New York",
@@ -1381,7 +1557,7 @@ elif page == "Fraud Prediction":
             )
 
             merchant_category = st.selectbox(
-                "Merchant Category",
+                "🏪 Merchant Category",
                 [
                     "Groceries",
                     "Electronics",
@@ -1394,14 +1570,14 @@ elif page == "Fraud Prediction":
         with col2:
 
             previous_fraud = st.selectbox(
-                "Previous Fraudulent Activity",
+                "⚠️ Previous Fraudulent Activity",
                 [0, 1],
                 format_func=lambda x:
                     "Yes" if x == 1 else "No"
             )
 
             daily_count = st.number_input(
-                "Daily Transaction Count",
+                "📊 Daily Transaction Count",
                 min_value=1,
                 max_value=100,
                 value=7,
@@ -1409,7 +1585,7 @@ elif page == "Fraud Prediction":
             )
 
             card_type = st.selectbox(
-                "Card Type",
+                "💳 Card Type",
                 [
                     "Visa",
                     "Mastercard",
@@ -1419,7 +1595,7 @@ elif page == "Fraud Prediction":
             )
 
             card_age = st.number_input(
-                "Card Age (days)",
+                "📅 Card Age (days)",
                 min_value=1,
                 max_value=5000,
                 value=120,
@@ -1427,21 +1603,21 @@ elif page == "Fraud Prediction":
             )
 
             transaction_date = st.date_input(
-                "Transaction Date",
+                "📆 Transaction Date",
                 value=pd.Timestamp(
                     "2025-06-15"
                 ).date()
             )
 
             transaction_time = st.time_input(
-                "Transaction Time",
+                "🕐 Transaction Time",
                 value=pd.Timestamp(
                     "2025-06-15 14:30"
                 ).time()
             )
 
             amount_zscore = st.number_input(
-                "Amount Z-score for User",
+                "📈 Amount Z-score for User",
                 value=0.0,
                 min_value=-10.0,
                 max_value=10.0,
@@ -1456,7 +1632,7 @@ elif page == "Fraud Prediction":
         st.markdown(
             """
             <div class="model-note">
-                <strong>How the model works:</strong>
+                <strong>🧠 How the model works:</strong>
                 The transaction is transformed using the same fitted
                 preprocessor used during training. The Random Forest then
                 returns a fraud probability. A probability of
@@ -1529,7 +1705,7 @@ elif page == "Fraud Prediction":
             )
 
             st.markdown(
-                '<div class="section-title">Prediction Result</div>',
+                '<div class="section-title">🎯 Prediction Result</div>',
                 unsafe_allow_html=True
             )
 
@@ -1606,26 +1782,26 @@ elif page == "Fraud Prediction":
 
             if risk == "CRITICAL":
                 st.error(
-                    "Critical risk: immediate manual verification is recommended."
+                    "🚨 Critical risk: immediate manual verification is recommended."
                 )
 
             elif risk == "HIGH":
                 st.warning(
-                    "High risk: additional transaction verification is recommended."
+                    "⚠️ High risk: additional transaction verification is recommended."
                 )
 
             elif risk == "MEDIUM":
                 st.warning(
-                    "Medium risk: monitor the transaction and consider additional checks."
+                    "📌 Medium risk: monitor the transaction and consider additional checks."
                 )
 
             else:
                 st.success(
-                    "Low risk: no immediate fraud action is indicated by the model."
+                    "✅ Low risk: no immediate fraud action is indicated by the model."
                 )
 
             st.markdown(
-                '<div class="section-title">Transaction Summary</div>',
+                '<div class="section-title">📋 Transaction Summary</div>',
                 unsafe_allow_html=True
             )
 
@@ -1673,7 +1849,7 @@ elif page == "Fraud Prediction":
             st.exception(exc)
 
             st.info(
-                "If this error mentions feature names or preprocessing, "
+                "💡 If this error mentions feature names or preprocessing, "
                 "re-run src/train_final_model.py so the model, preprocessor "
                 "and feature information are generated together."
             )
@@ -1706,7 +1882,7 @@ elif page == "Model Performance":
     if performance is None:
 
         st.warning(
-            "Test data was not found. Run src/train_final_model.py first."
+            "⚠️ Test data was not found. Run src/train_final_model.py first."
         )
 
         st.stop()
@@ -1779,7 +1955,7 @@ elif page == "Model Performance":
         )
 
     st.markdown(
-        '<div class="section-title">Selected Fraud Threshold</div>',
+        '<div class="section-title">🎯 Selected Fraud Threshold</div>',
         unsafe_allow_html=True
     )
 
@@ -1796,7 +1972,7 @@ elif page == "Model Performance":
     )
 
     st.markdown(
-        '<div class="section-title">Confusion Matrix</div>',
+        '<div class="section-title">📊 Confusion Matrix</div>',
         unsafe_allow_html=True
     )
 
@@ -1863,7 +2039,7 @@ elif page == "Model Performance":
             )
 
     st.markdown(
-        '<div class="section-title">ROC Curve</div>',
+        '<div class="section-title">📈 ROC Curve</div>',
         unsafe_allow_html=True
     )
 
@@ -1892,7 +2068,7 @@ elif page == "Model Performance":
         y1=1,
         line=dict(
             dash="dash",
-            color="#64748b"
+            color="#475569"
         )
     )
 
@@ -1902,7 +2078,7 @@ elif page == "Model Performance":
     )
 
     st.markdown(
-        '<div class="section-title">Precision-Recall Curve</div>',
+        '<div class="section-title">📉 Precision-Recall Curve</div>',
         unsafe_allow_html=True
     )
 
@@ -1935,7 +2111,7 @@ elif page == "Model Performance":
     fig.add_hline(
         y=precision,
         line_dash="dash",
-        line_color="#818cf8",
+        line_color="#34d399",
         annotation_text=f"Precision {precision:.2f}"
     )
 
@@ -1945,7 +2121,7 @@ elif page == "Model Performance":
     )
 
     st.markdown(
-        '<div class="section-title">Model Interpretation</div>',
+        '<div class="section-title">🧠 Model Interpretation</div>',
         unsafe_allow_html=True
     )
 
